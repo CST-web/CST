@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="bg-card border-t border-border">
+  return <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
@@ -62,7 +60,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>contact@cst-club.com</span>
+                <span>club.scientifique.tech@gmail.com</span>
               </li>
               <li className="flex items-start gap-2">
                 <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -76,25 +74,13 @@ const Footer = () => {
             
             {/* Social Links */}
             <div className="flex gap-3 mt-4">
-              <a
-                href="#"
-                className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300"
-                aria-label="Facebook"
-              >
+              <a href="#" className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300" aria-label="Facebook">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a
-                href="#"
-                className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300"
-                aria-label="Instagram"
-              >
+              <a href="#" className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300" aria-label="Instagram">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a
-                href="#"
-                className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300"
-                aria-label="LinkedIn"
-              >
+              <a href="#" className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300" aria-label="LinkedIn">
                 <Linkedin className="w-4 h-4" />
               </a>
             </div>
@@ -106,8 +92,6 @@ const Footer = () => {
           <p>© {new Date().getFullYear()} Club Scientifique et Technologique. Tous droits réservés.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
