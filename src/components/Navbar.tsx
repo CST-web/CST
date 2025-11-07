@@ -45,7 +45,7 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Link to="/auth">
+            <Link to="/join">
               <Button variant="hero" size="sm" className="ml-4">
                 <User className="w-4 h-4 mr-2" />
                 Connexion
@@ -80,7 +80,7 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Link to="/auth" onClick={() => setIsOpen(false)}>
+            <Link to="/join" onClick={() => setIsOpen(false)}>
               <Button variant="hero" className="w-full mt-2">
                 <User className="w-4 h-4 mr-2" />
                 Connexion
