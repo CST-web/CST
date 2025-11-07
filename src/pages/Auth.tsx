@@ -9,8 +9,11 @@ import { Lock, Mail, UserPlus, LogIn } from "lucide-react";
 
 const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [nom, setNom] = useState("");
+  const [prenom, setPrenom] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [codeMassar, setCodeMassar] = useState("");
   const { toast } = useToast();
 
   const handleSignUp = async (e: React.FormEvent) => {
@@ -64,6 +67,30 @@ const Auth = () => {
             <TabsContent value="signin">
               <form onSubmit={handleSignIn} className="space-y-4">
                 <div className="space-y-2">
+                  <Label htmlFor="signin-nom">Nom</Label>
+                  <Input
+                    id="signin-nom"
+                    type="text"
+                    placeholder="Nom"
+                    value={nom}
+                    onChange={(e) => setNom(e.target.value)}
+                    required
+                    maxLength={100}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="signin-prenom">Prénom</Label>
+                  <Input
+                    id="signin-prenom"
+                    type="text"
+                    placeholder="Prénom"
+                    value={prenom}
+                    onChange={(e) => setPrenom(e.target.value)}
+                    required
+                    maxLength={100}
+                  />
+                </div>
+                <div className="space-y-2">
                   <Label htmlFor="signin-email">Email</Label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
@@ -104,6 +131,42 @@ const Auth = () => {
 
             <TabsContent value="signup">
               <form onSubmit={handleSignUp} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="signup-nom">Nom</Label>
+                  <Input
+                    id="signup-nom"
+                    type="text"
+                    placeholder="Nom"
+                    value={nom}
+                    onChange={(e) => setNom(e.target.value)}
+                    required
+                    maxLength={100}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="signup-prenom">Prénom</Label>
+                  <Input
+                    id="signup-prenom"
+                    type="text"
+                    placeholder="Prénom"
+                    value={prenom}
+                    onChange={(e) => setPrenom(e.target.value)}
+                    required
+                    maxLength={100}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="signup-code-massar">Code Massar</Label>
+                  <Input
+                    id="signup-code-massar"
+                    type="text"
+                    placeholder="Code Massar"
+                    value={codeMassar}
+                    onChange={(e) => setCodeMassar(e.target.value)}
+                    required
+                    maxLength={50}
+                  />
+                </div>
                 <div className="space-y-2">
                   <Label htmlFor="signup-email">Email</Label>
                   <div className="relative">
