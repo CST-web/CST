@@ -3,58 +3,33 @@ import { Brain, Award, Bot, Trophy, Users, Calendar } from "lucide-react";
 import chessImage from "@/assets/chess-activity.jpg";
 import tipeImage from "@/assets/tipe-activity.jpg";
 import roboticsImage from "@/assets/robotics-activity.jpg";
-
 const Activities = () => {
-  const activities = [
-    {
-      title: "Robotique",
-      image: roboticsImage,
-      icon: Bot,
-      color: "from-primary-glow to-cyan-400",
-      description:
-        "Construisez, programmez et pilotez des robots pour participer à des compétitions nationales et internationales.",
-      features: [
-        "Programmation Arduino et Raspberry Pi",
-        "Construction de robots pour compétitions",
-        "Ateliers d'électronique et mécanique",
-        "Préparation aux compétitions FIRST et VEX",
-      ],
-      schedule: "Lundis et samedis, 15h-18h",
-    },
-    {
-      title: "Échecs & Rubik's Cube",
-      image: chessImage,
-      icon: Brain,
-      color: "from-primary to-primary-glow",
-      description:
-        "Développez vos capacités de réflexion stratégique et de résolution de problèmes à travers les échecs et le Rubik's cube.",
-      features: [
-        "Tournois d'échecs mensuels",
-        "Sessions d'entraînement avec des maîtres",
-        "Compétitions de Rubik's cube speed-solving",
-        "Ateliers de stratégie et tactique",
-      ],
-      schedule: "Tous les mardis et jeudis, 17h-19h",
-    },
-    {
-      title: "Prix du meilleur TIPE",
-      image: tipeImage,
-      icon: Award,
-      color: "from-accent to-orange-400",
-      description:
-        "Participez à la compétition du meilleur TIPE et présentez vos travaux de recherche scientifique devant un jury d'experts.",
-      features: [
-        "Accompagnement dans la réalisation du TIPE",
-        "Sessions de préparation à la présentation orale",
-        "Accès aux équipements de recherche",
-        "Récompenses et reconnaissances académiques",
-      ],
-      schedule: "Mercredis et vendredis, 16h-20h",
-    },
-  ];
-
-  return (
-    <div className="min-h-screen py-12">
+  const activities = [{
+    title: "Robotique",
+    image: roboticsImage,
+    icon: Bot,
+    color: "from-primary-glow to-cyan-400",
+    description: "Construisez, programmez et pilotez des robots pour participer à des compétitions nationales et internationales.",
+    features: ["Programmation Arduino et Raspberry Pi", "Construction de robots pour compétitions", "Ateliers d'électronique et mécanique", "Préparation aux compétitions FIRST et VEX"],
+    schedule: "Lundis et samedis, 15h-18h"
+  }, {
+    title: "Échecs & Rubik's Cube",
+    image: chessImage,
+    icon: Brain,
+    color: "from-primary to-primary-glow",
+    description: "Développez vos capacités de réflexion stratégique et de résolution de problèmes à travers les échecs et le Rubik's cube.",
+    features: ["Tournois d'échecs mensuels", "Sessions d'entraînement avec des maîtres", "Compétitions de Rubik's cube speed-solving", "Ateliers de stratégie et tactique"],
+    schedule: "Tous les mardis et jeudis, 17h-19h"
+  }, {
+    title: "Prix du meilleur TIPE",
+    image: tipeImage,
+    icon: Award,
+    color: "from-accent to-orange-400",
+    description: "Participez à la compétition du meilleur TIPE et présentez vos travaux de recherche scientifique devant un jury d'experts.",
+    features: ["Accompagnement dans la réalisation du TIPE", "Sessions de préparation à la présentation orale", "Accès aux équipements de recherche", "Récompenses et reconnaissances académiques"],
+    schedule: "Mercredis et vendredis, 16h-20h"
+  }];
+  return <div className="min-h-screen py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -67,19 +42,11 @@ const Activities = () => {
 
         {/* Activities */}
         <div className="space-y-16">
-          {activities.map((activity, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden shadow-medium hover:shadow-strong transition-shadow duration-300"
-            >
+          {activities.map((activity, index) => <Card key={index} className="overflow-hidden shadow-medium hover:shadow-strong transition-shadow duration-300">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Image */}
                 <div className={`relative h-64 lg:h-auto ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <img
-                    src={activity.image}
-                    alt={activity.title}
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={activity.image} alt={activity.title} className="w-full h-full object-cover" />
                   <div className={`absolute inset-0 bg-gradient-to-br ${activity.color} opacity-40`} />
                 </div>
 
@@ -103,12 +70,7 @@ const Activities = () => {
                         <h3 className="font-semibold">Ce que nous offrons</h3>
                       </div>
                       <ul className="space-y-2">
-                        {activity.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                            <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
+                        {activity.features.map((feature, idx) => {})}
                       </ul>
                     </div>
 
@@ -116,7 +78,7 @@ const Activities = () => {
                     <div className="flex items-center gap-2 text-sm">
                       <Calendar className="w-5 h-5 text-primary" />
                       <span className="font-medium">Horaires:</span>
-                      <span className="text-muted-foreground">{activity.schedule}</span>
+                      
                     </div>
 
                     {/* Members */}
@@ -129,8 +91,7 @@ const Activities = () => {
                   </div>
                 </CardContent>
               </div>
-            </Card>
-          ))}
+            </Card>)}
         </div>
 
         {/* CTA */}
@@ -152,8 +113,6 @@ const Activities = () => {
           </Card>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Activities;
