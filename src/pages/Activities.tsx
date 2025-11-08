@@ -90,33 +90,39 @@ const Activities = () => {
                     <div>
                       <div className="flex items-center gap-2 mb-2">
                         <Sparkles className="w-5 h-5 text-primary" />
-                        <h3 className="font-semibold">Précieux</h3>
+                        <h3 className="font-semibold">Certificats et prix précieux</h3>
                       </div>
                       <p className="text-muted-foreground text-sm italic">{activity.precious}</p>
                     </div>
 
-                    {/* Partners */}
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Handshake className="w-5 h-5 text-primary" />
-                        <h3 className="font-semibold">Partenaires</h3>
+                    {/* Partners - Hidden for Prix du meilleur TIPE */}
+                    {activity.title !== "Prix du meilleur TIPE" && (
+                      <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <Handshake className="w-5 h-5 text-primary" />
+                          <h3 className="font-semibold">Partenaires</h3>
+                        </div>
+                        <p className="text-muted-foreground text-sm italic">{activity.partners}</p>
                       </div>
-                      <p className="text-muted-foreground text-sm italic">{activity.partners}</p>
-                    </div>
+                    )}
 
-                    {/* Schedule */}
-                    <div className="flex items-center gap-2 text-sm">
-                      <Calendar className="w-5 h-5 text-primary" />
-                      <span className="font-medium">Horaires:</span>
-                      <span className="text-muted-foreground italic">{activity.schedule}</span>
-                    </div>
+                    {/* Schedule - Hidden for Prix du meilleur TIPE */}
+                    {activity.title !== "Prix du meilleur TIPE" && (
+                      <div className="flex items-center gap-2 text-sm">
+                        <Calendar className="w-5 h-5 text-primary" />
+                        <span className="font-medium">Horaires:</span>
+                        <span className="text-muted-foreground italic">{activity.schedule}</span>
+                      </div>
+                    )}
 
-                    {/* Members */}
-                    <div className="flex items-center gap-2 text-sm">
-                      <Users className="w-5 h-5 text-primary" />
-                      <span className="font-medium">Membres:</span>
-                      <span className="text-muted-foreground italic">{activity.members}</span>
-                    </div>
+                    {/* Members - Hidden for Prix du meilleur TIPE */}
+                    {activity.title !== "Prix du meilleur TIPE" && (
+                      <div className="flex items-center gap-2 text-sm">
+                        <Users className="w-5 h-5 text-primary" />
+                        <span className="font-medium">Membres:</span>
+                        <span className="text-muted-foreground italic">{activity.members}</span>
+                      </div>
+                    )}
                   </div>
                 </CardContent>
               </div>
