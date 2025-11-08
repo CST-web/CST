@@ -7,6 +7,7 @@ import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import socialBg from "@/assets/social-media-bg.jpg";
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Le nom doit contenir au moins 2 caractères").max(100),
   email: z.string().trim().email("Email invalide").max(255),
@@ -103,12 +104,17 @@ const Contact = () => {
               </Card>)}
 
             {/* Social Media */}
-            <Card className="bg-gradient-hero shadow-medium">
-              <CardContent className="pt-6">
-                <h3 className="font-semibold text-primary-foreground mb-4">Suivez-nous</h3>
-                <div className="flex gap-3">
-                  {socialLinks.map((social, index) => <a key={index} href={social.link} className="w-10 h-10 rounded-full bg-card hover:bg-card/90 flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label={social.label}>
-                      <social.icon className="w-5 h-5" />
+            <Card className="relative overflow-hidden shadow-medium">
+              <div 
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${socialBg})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-primary/60" />
+              <CardContent className="relative pt-6 flex flex-col items-center text-center">
+                <h3 className="font-semibold text-white mb-4">Suivez-nous</h3>
+                <div className="flex gap-3 justify-center">
+                  {socialLinks.map((social, index) => <a key={index} href={social.link} className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label={social.label}>
+                      <social.icon className="w-5 h-5 text-white" />
                     </a>)}
                 </div>
               </CardContent>
