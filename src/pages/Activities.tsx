@@ -10,7 +10,7 @@ const Activities = () => {
     icon: Bot,
     color: "from-primary-glow to-cyan-400",
     description: "Construisez, programmez et pilotez des robots pour participer à des compétitions nationales et internationales.",
-    features: ["Programmation Arduino et Raspberry Pi", "Construction de robots pour compétitions", "Ateliers d'électronique et mécanique", "Préparation aux compétitions FIRST et VEX"],
+    features: ["Programmation Arduino et Raspberry Pi", "Construction de robots pour compétitions", "Ateliers d'électronique et mécanique", "Préparation aux compétitions FIRST et VEX", "Ateliers de formations", "Ateliers de suivre", "Des compétition locale, nationale ou même internationale"],
     schedule: "Lundis et samedis, 15h-18h"
   }, {
     title: "Échecs & Rubik's Cube",
