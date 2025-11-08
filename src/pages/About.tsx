@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Target, Eye, Heart, Users } from "lucide-react";
+import { Target, Eye, Heart, Users, Instagram, Linkedin } from "lucide-react";
 import presidentImage from "@/assets/ihabe-president.png";
 const About = () => {
   const values = [{
@@ -35,10 +35,20 @@ const About = () => {
         <Card className="mb-16 shadow-strong overflow-hidden">
           <CardContent className="p-0">
             <div className="flex flex-col md:flex-row items-center gap-8 p-8">
-              <Avatar className="w-24 h-24 md:w-32 md:h-32 ring-4 ring-primary/20">
-                <AvatarImage src={presidentImage} alt="Président du Club" />
-                <AvatarFallback className="text-2xl">IF</AvatarFallback>
-              </Avatar>
+              <div className="flex flex-col items-center gap-4">
+                <Avatar className="w-24 h-24 md:w-32 md:h-32 ring-4 ring-primary/20">
+                  <AvatarImage src={presidentImage} alt="Président du Club" />
+                  <AvatarFallback className="text-2xl">IF</AvatarFallback>
+                </Avatar>
+                <div className="flex gap-3">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-3xl font-bold mb-2">Ihab Farahat Sherif – Président du Club Scientifique et Technologique (CPGE Ibn Taymiya)</h2>
                 <p className="text-primary font-semibold mb-4">Étudiant en filière *ECT au CPGE Ibn Taymiya, **Ihab Farahat Sherif* allie compétences techniques, esprit d’innovation et sens du leadership.
