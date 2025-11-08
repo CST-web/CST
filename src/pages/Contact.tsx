@@ -28,19 +28,19 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "contact@cst-club.com",
-      link: "mailto:contact@cst-club.com",
+      value: "club.scientifique.tech@gmail.com",
+      link: "mailto:club.scientifique.tech@gmail.com",
     },
     {
       icon: Phone,
       label: "Téléphone",
-      value: "+212 XXX-XXXXXX",
-      link: "tel:+212XXXXXXXXX",
+      value: "+212 619-099651",
+      link: "tel:+212619099651",
     },
     {
       icon: MapPin,
       label: "Adresse",
-      value: "Campus Principal, Salle XYZ",
+      value: "Lycée Ibn Timiya - Salle de conférence",
       link: "#",
     },
   ];
