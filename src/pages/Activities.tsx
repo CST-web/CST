@@ -1,11 +1,26 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Brain, Lightbulb, Bot, Trophy, Users, Calendar } from "lucide-react";
+import { Brain, Award, Bot, Trophy, Users, Calendar } from "lucide-react";
 import chessImage from "@/assets/chess-activity.jpg";
-import innovationImage from "@/assets/innovation-activity.jpg";
+import tipeImage from "@/assets/tipe-activity.jpg";
 import roboticsImage from "@/assets/robotics-activity.jpg";
 
 const Activities = () => {
   const activities = [
+    {
+      title: "Robotique",
+      image: roboticsImage,
+      icon: Bot,
+      color: "from-primary-glow to-cyan-400",
+      description:
+        "Construisez, programmez et pilotez des robots pour participer à des compétitions nationales et internationales.",
+      features: [
+        "Programmation Arduino et Raspberry Pi",
+        "Construction de robots pour compétitions",
+        "Ateliers d'électronique et mécanique",
+        "Préparation aux compétitions FIRST et VEX",
+      ],
+      schedule: "Lundis et samedis, 15h-18h",
+    },
     {
       title: "Échecs & Rubik's Cube",
       image: chessImage,
@@ -22,34 +37,19 @@ const Activities = () => {
       schedule: "Tous les mardis et jeudis, 17h-19h",
     },
     {
-      title: "Innovation & Prototypage",
-      image: innovationImage,
-      icon: Lightbulb,
+      title: "Prix du meilleur TIPE",
+      image: tipeImage,
+      icon: Award,
       color: "from-accent to-orange-400",
       description:
-        "Transformez vos idées en réalité grâce à nos outils de fabrication numérique et nos espaces de création.",
+        "Participez à la compétition du meilleur TIPE et présentez vos travaux de recherche scientifique devant un jury d'experts.",
       features: [
-        "Accès à l'imprimante 3D et découpeuse laser",
-        "Ateliers de design thinking",
-        "Mentorat pour le développement de projets",
-        "Participation à des hackathons",
+        "Accompagnement dans la réalisation du TIPE",
+        "Sessions de préparation à la présentation orale",
+        "Accès aux équipements de recherche",
+        "Récompenses et reconnaissances académiques",
       ],
       schedule: "Mercredis et vendredis, 16h-20h",
-    },
-    {
-      title: "Robotique",
-      image: roboticsImage,
-      icon: Bot,
-      color: "from-primary-glow to-cyan-400",
-      description:
-        "Construisez, programmez et pilotez des robots pour participer à des compétitions nationales et internationales.",
-      features: [
-        "Programmation Arduino et Raspberry Pi",
-        "Construction de robots pour compétitions",
-        "Ateliers d'électronique et mécanique",
-        "Préparation aux compétitions FIRST et VEX",
-      ],
-      schedule: "Lundis et samedis, 15h-18h",
     },
   ];
 
