@@ -132,7 +132,7 @@ const Home = () => {
       <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0">
           <img src={ctaBackground} alt="Chess and Robotics" className="w-full h-full object-cover object-[70%] sm:object-[75%] md:object-right" loading="lazy" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40 bg-[#1c3a43]/[0.26]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40 bg-[#89cf4f]/[0.03]" />
         </div>
         <div className="relative container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-primary-foreground mb-6">
