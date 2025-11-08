@@ -18,7 +18,7 @@ const Activities = () => {
     icon: Brain,
     color: "from-primary to-primary-glow",
     description: "Développez vos capacités de réflexion stratégique et de résolution de problèmes à travers les échecs et le Rubik's cube.",
-    features: ["Tournois d'échecs mensuels", "Sessions d'entraînement avec des maîtres", "Compétitions de Rubik's cube speed-solving", "Ateliers de stratégie et tactique", "Ateliers de formations", "Ateliers de suivre", "Ateliers pour jouer", "Des compétition locale, nationale ou même internationale"],
+    features: ["Ateliers de formations", "Ateliers de suivre", "Ateliers pour jouer", "Des compétition locale, nationale ou même internationale"],
     schedule: "Tous les mardis et jeudis, 17h-19h"
   }, {
     title: "Prix du meilleur TIPE",
