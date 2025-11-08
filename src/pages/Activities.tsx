@@ -79,12 +79,10 @@ const Activities = () => {
                         <h3 className="font-semibold">Ce que nous offrons</h3>
                       </div>
                       <ul className="space-y-2">
-                        {activity.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
+                        {activity.features.map((feature, idx) => <li key={idx} className="flex items-start gap-2">
                             <span className="text-primary mt-1">•</span>
                             <span className="text-muted-foreground">{feature}</span>
-                          </li>
-                        ))}
+                          </li>)}
                       </ul>
                     </div>
 
@@ -94,7 +92,7 @@ const Activities = () => {
                         <Sparkles className="w-5 h-5 text-primary" />
                         <h3 className="font-semibold">Précieux</h3>
                       </div>
-                      <p className="text-muted-foreground text-sm italic">{activity.precious}</p>
+                      
                     </div>
 
                     {/* Partners */}
