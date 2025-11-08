@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronRight, Target, Users, Award, Brain, Bot } from "lucide-react";
-import heroImage from "@/assets/hero-tech-bg.jpg";
+import heroImage from "@/assets/hero-chess-tech-bg.jpg";
 import chessImage from "@/assets/chess-activity.jpg";
 import tipeImage from "@/assets/tipe-activity.jpg";
 import roboticsImage from "@/assets/robotics-activity.jpg";
