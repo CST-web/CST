@@ -131,8 +131,8 @@ const Home = () => {
       {/* CTA Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={ctaBackground} alt="Chess and Robotics" className="w-full h-full object-cover object-center md:object-right" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/50" />
+          <img src={ctaBackground} alt="Chess and Robotics" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#b598dd]/[0.33]" />
         </div>
         <div className="relative container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-primary-foreground mb-6">
