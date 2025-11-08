@@ -1,30 +1,30 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronRight, Target, Users, Award, Brain, Lightbulb, Bot } from "lucide-react";
+import { ChevronRight, Target, Users, Award, Brain, Bot } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 import chessImage from "@/assets/chess-activity.jpg";
-import innovationImage from "@/assets/innovation-activity.jpg";
+import tipeImage from "@/assets/tipe-activity.jpg";
 import roboticsImage from "@/assets/robotics-activity.jpg";
 const Home = () => {
   const activities = [{
+    title: "Robotique",
+    description: "Construisez et programmez des robots pour participer à des compétitions nationales.",
+    icon: Bot,
+    image: roboticsImage,
+    color: "from-primary-glow to-cyan-400"
+  }, {
     title: "Échecs & Rubik's Cube",
     description: "Développez votre stratégie et logique à travers des tournois et sessions d'entraînement.",
     icon: Brain,
     image: chessImage,
     color: "from-primary to-primary-glow"
   }, {
-    title: "Innovation",
-    description: "Créez et prototypez vos idées avec nos outils de fabrication et impression 3D.",
-    icon: Lightbulb,
-    image: innovationImage,
+    title: "Prix du meilleur TIPE",
+    description: "Participez à la compétition du meilleur TIPE et présentez vos travaux de recherche scientifique.",
+    icon: Award,
+    image: tipeImage,
     color: "from-accent to-orange-400"
-  }, {
-    title: "Robotique",
-    description: "Construisez et programmez des robots pour participer à des compétitions nationales.",
-    icon: Bot,
-    image: roboticsImage,
-    color: "from-primary-glow to-cyan-400"
   }];
   const stats = [{
     icon: Users,
@@ -80,7 +80,15 @@ const Home = () => {
       <section className="py-12 bg-card border-y border-border">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => {})}
+            {stats.map((stat, index) => (
+              <div key={index} className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <stat.icon className="w-8 h-8 text-primary" />
+                </div>
+                <div className="text-3xl font-bold mb-2">{stat.value}</div>
+                <div className="text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
