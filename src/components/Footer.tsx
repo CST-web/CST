@@ -74,7 +74,9 @@ const Footer = () => {
             
             {/* Social Links */}
             <div className="flex gap-3 mt-4">
-              
+              <a href="#" className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300" aria-label="Facebook">
+                <Facebook className="w-4 h-4" />
+              </a>
               <a href="#" className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300" aria-label="Instagram">
                 <Instagram className="w-4 h-4" />
               </a>
