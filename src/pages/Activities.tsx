@@ -32,7 +32,7 @@ const Activities = () => {
     icon: Award,
     color: "from-accent to-orange-400",
     description: "Participez à la compétition du meilleur TIPE et présentez vos travaux de recherche scientifique devant un jury d'experts.",
-    features: ["Ateliers de formations", "Ateliers de suivre", "Des compétition locale, nationale ou même internationale"],
+    features: ["Lancement du thème", "Encadrement & Motivation"],
     precious: "",
     partners: "coming soon",
     schedule: "coming soon",
