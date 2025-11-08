@@ -2,33 +2,25 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Target, Eye, Heart, Users } from "lucide-react";
 import presidentImage from "@/assets/ihabe-president.png";
-
 const About = () => {
-  const values = [
-    {
-      icon: Target,
-      title: "Excellence",
-      description: "Nous visons l'excellence dans chaque projet et compétition.",
-    },
-    {
-      icon: Heart,
-      title: "Passion",
-      description: "La passion pour la science et la technologie nous anime.",
-    },
-    {
-      icon: Users,
-      title: "Collaboration",
-      description: "L'esprit d'équipe et le partage de connaissances sont essentiels.",
-    },
-    {
-      icon: Eye,
-      title: "Innovation",
-      description: "Nous encourageons la créativité et la pensée innovante.",
-    },
-  ];
-
-  return (
-    <div className="min-h-screen py-12">
+  const values = [{
+    icon: Target,
+    title: "Excellence",
+    description: "Nous visons l'excellence dans chaque projet et compétition."
+  }, {
+    icon: Heart,
+    title: "Passion",
+    description: "La passion pour la science et la technologie nous anime."
+  }, {
+    icon: Users,
+    title: "Collaboration",
+    description: "L'esprit d'équipe et le partage de connaissances sont essentiels."
+  }, {
+    icon: Eye,
+    title: "Innovation",
+    description: "Nous encourageons la créativité et la pensée innovante."
+  }];
+  return <div className="min-h-screen py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -48,11 +40,15 @@ const About = () => {
                 <AvatarFallback className="text-2xl">IF</AvatarFallback>
               </Avatar>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-3xl font-bold mb-2">Ihabe Farahat Sherif</h2>
-                <p className="text-primary font-semibold mb-4">Economics & Business CPGE Student | Initiative-Taker & Impact-Maker</p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Helping Solve Real-World Business Challenges through Innovation & Purposeful Leadership.
-                </p>
+                <h2 className="text-3xl font-bold mb-2">Ihab Farahat Sherif – Président du Club Scientifique et Technologique (CPGE Ibn Taymiya)</h2>
+                <p className="text-primary font-semibold mb-4">Étudiant en filière *ECT au CPGE Ibn Taymiya, **Ihab Farahat Sherif* allie compétences techniques, esprit d’innovation et sens du leadership.
+
+              </p>
+                <p className="text-muted-foreground leading-relaxed">Certifié par des institutions internationales telles que *IBM,LinkedIn, **Project Management Institute* et *Cisco* ..., il s’engage à promouvoir l’excellence, la collaboration et la gestion efficace de projets au sein du club.
+
+
+En tant que président, il œuvre à créer un environnement où chaque étudiant peut *proposer, expérimenter et agir, tout en développant ses **compétences personnelles et professionnelles*.
+Son objectif : faire du club un espace d’apprentissage dynamique, où *rigueur académique et créativité* se rencontrent pour inspirer la prochaine génération de leaders.</p>
               </div>
             </div>
           </CardContent>
@@ -94,11 +90,7 @@ const About = () => {
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-12">Nos Valeurs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <Card
-                key={index}
-                className="text-center hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
-              >
+            {values.map((value, index) => <Card key={index} className="text-center hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
                 <CardContent className="pt-6">
                   <div className="w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center mx-auto mb-4">
                     <value.icon className="w-8 h-8 text-primary-foreground" />
@@ -106,8 +98,7 @@ const About = () => {
                   <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
                   <p className="text-muted-foreground text-sm">{value.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
 
@@ -134,8 +125,6 @@ const About = () => {
           </CardContent>
         </Card>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
