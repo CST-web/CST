@@ -117,19 +117,18 @@ const About = () => {
             <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
             <div className="space-y-4 text-muted-foreground">
               <p className="leading-relaxed">
-                Fondé en [année], le Club Scientifique et Technologique est né de la passion 
-                d'un groupe d'étudiants pour la science, la technologie et l'innovation. 
-                Depuis nos débuts modestes, nous avons grandi pour devenir l'une des organisations 
-                étudiantes les plus dynamiques et respectées.
+                Le Club Scientifique et Technologique du CPGE Ibn Timiya est né d'une idée simple :
+                créer un espace où les étudiants apprennent autrement.
               </p>
               <p className="leading-relaxed">
-                Au fil des années, nos membres ont remporté de nombreux prix dans des compétitions 
-                nationales et internationales, développé des projets innovants qui ont eu un impact 
-                réel, et créé une communauté soudée de passionnés de science et technologie.
+                Fondé et animé par des étudiants passionnés, le club est un lieu d'échange, de créativité et de collaboration, où chaque membre peut partager ses compétences, développer ses idées et participer à des projets concrets.
               </p>
               <p className="leading-relaxed">
-                Aujourd'hui, nous continuons à innover, à apprendre et à grandir ensemble, 
-                en préparant nos membres à devenir les leaders technologiques de demain.
+                Face à la charge d'études exigeante des classes préparatoires, nous avons voulu offrir un souffle différent, un espace qui valorise l'innovation, le plaisir d'apprendre et l'esprit d'équipe.
+              </p>
+              <p className="leading-relaxed">
+                Nos activités sont conçues pour stimuler la curiosité, la logique et la créativité.
+                Ici, chacun peut agir, proposer et créer, sans hiérarchie, dans une dynamique collective au service de la communauté étudiante du CPGE Ibn Timiya.
               </p>
             </div>
           </CardContent>
