@@ -6,6 +6,7 @@ import heroImage from "@/assets/hero-bg.jpg";
 import chessImage from "@/assets/chess-activity.jpg";
 import tipeImage from "@/assets/tipe-activity.jpg";
 import roboticsImage from "@/assets/robotics-activity.jpg";
+import ctaBackground from "@/assets/cta-bg.jpg";
 const Home = () => {
   const activities = [{
     title: "Robotique",
@@ -128,8 +129,12 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-hero">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={ctaBackground} alt="Chess and Robotics" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-background/80" />
+        </div>
+        <div className="relative container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-primary-foreground mb-6">
             Prêt à Rejoindre l'Aventure ?
           </h2>
