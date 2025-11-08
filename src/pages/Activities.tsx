@@ -23,9 +23,9 @@ const Activities = () => {
     description: "Développez vos capacités de réflexion stratégique et de résolution de problèmes à travers les échecs et le Rubik's cube.",
     features: ["Ateliers de formations", "Ateliers de suivre", "Ateliers pour jouer", "Des compétition locale, nationale ou même internationale"],
     precious: "coming soon",
-    partners: "l'association ATDTech",
+    partners: "coming soon",
     schedule: "coming soon",
-    members: "Entre 30 et 40 élèves"
+    members: "coming soon"
   }, {
     title: "Prix du meilleur TIPE",
     image: tipeImage,
@@ -34,9 +34,9 @@ const Activities = () => {
     description: "Participez à la compétition du meilleur TIPE et présentez vos travaux de recherche scientifique devant un jury d'experts.",
     features: ["Accompagnement dans la réalisation du TIPE", "Sessions de préparation à la présentation orale", "Accès aux équipements de recherche", "Récompenses et reconnaissances académiques"],
     precious: "coming soon",
-    partners: "l'association ATDTech",
+    partners: "coming soon",
     schedule: "coming soon",
-    members: "Entre 30 et 40 élèves"
+    members: "coming soon"
   }];
   return <div className="min-h-screen py-12">
       <div className="container mx-auto px-4">
