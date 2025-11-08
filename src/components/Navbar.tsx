@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">CST</span>
             </div>
-            <span className="font-bold text-lg hidden md:block">Club Scientifique</span>
+            <span className="font-bold text-lg hidden md:block">Club Scientifique et Technologique</span>
           </Link>
 
           {/* Desktop Navigation */}
