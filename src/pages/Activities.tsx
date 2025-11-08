@@ -3,6 +3,7 @@ import { Brain, Award, Bot, Trophy, Users, Calendar, Sparkles, Handshake } from 
 import chessImage from "@/assets/chess-activity.jpg";
 import tipeImage from "@/assets/tipe-activity.jpg";
 import roboticsImage from "@/assets/robotics-activity.jpg";
+import ctaBackground from "@/assets/activities-cta-bg.jpg";
 const Activities = () => {
   const activities = [{
     title: "Robotique",
@@ -130,22 +131,24 @@ const Activities = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 text-center">
-          <Card className="bg-gradient-hero shadow-strong">
-            <CardContent className="p-12">
-              <h2 className="text-3xl font-bold text-primary-foreground mb-4">
-                Prêt à Commencer ?
-              </h2>
-              <p className="text-xl text-primary-foreground/90 mb-6 max-w-2xl mx-auto">
-                Rejoignez-nous et découvrez toutes nos activités passionnantes
-              </p>
-              <a href="/join">
-                <button className="px-8 py-3 bg-card text-foreground rounded-lg font-semibold hover:shadow-strong transition-all duration-300 hover:scale-105">
-                  Nous Rejoindre
-                </button>
-              </a>
-            </CardContent>
-          </Card>
+        <div className="mt-16 relative overflow-hidden rounded-lg">
+          <div className="absolute inset-0">
+            <img src={ctaBackground} alt="Chess and Technology" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/60" />
+          </div>
+          <div className="relative text-center p-12">
+            <h2 className="text-3xl font-bold mb-4">
+              Prêt à Commencer ?
+            </h2>
+            <p className="text-xl text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Rejoignez-nous et découvrez toutes nos activités passionnantes
+            </p>
+            <a href="/join">
+              <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-strong transition-all duration-300 hover:scale-105">
+                Nous Rejoindre
+              </button>
+            </a>
+          </div>
         </div>
       </div>
     </div>;
