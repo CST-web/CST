@@ -6,48 +6,44 @@ import heroImage from "@/assets/hero-bg.jpg";
 import chessImage from "@/assets/chess-activity.jpg";
 import innovationImage from "@/assets/innovation-activity.jpg";
 import roboticsImage from "@/assets/robotics-activity.jpg";
-
 const Home = () => {
-  const activities = [
-    {
-      title: "Échecs & Rubik's Cube",
-      description: "Développez votre stratégie et logique à travers des tournois et sessions d'entraînement.",
-      icon: Brain,
-      image: chessImage,
-      color: "from-primary to-primary-glow",
-    },
-    {
-      title: "Innovation",
-      description: "Créez et prototypez vos idées avec nos outils de fabrication et impression 3D.",
-      icon: Lightbulb,
-      image: innovationImage,
-      color: "from-accent to-orange-400",
-    },
-    {
-      title: "Robotique",
-      description: "Construisez et programmez des robots pour participer à des compétitions nationales.",
-      icon: Bot,
-      image: roboticsImage,
-      color: "from-primary-glow to-cyan-400",
-    },
-  ];
-
-  const stats = [
-    { icon: Users, value: "150+", label: "Membres Actifs" },
-    { icon: Award, value: "25+", label: "Prix Remportés" },
-    { icon: Target, value: "50+", label: "Projets Réalisés" },
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const activities = [{
+    title: "Échecs & Rubik's Cube",
+    description: "Développez votre stratégie et logique à travers des tournois et sessions d'entraînement.",
+    icon: Brain,
+    image: chessImage,
+    color: "from-primary to-primary-glow"
+  }, {
+    title: "Innovation",
+    description: "Créez et prototypez vos idées avec nos outils de fabrication et impression 3D.",
+    icon: Lightbulb,
+    image: innovationImage,
+    color: "from-accent to-orange-400"
+  }, {
+    title: "Robotique",
+    description: "Construisez et programmez des robots pour participer à des compétitions nationales.",
+    icon: Bot,
+    image: roboticsImage,
+    color: "from-primary-glow to-cyan-400"
+  }];
+  const stats = [{
+    icon: Users,
+    value: "150+",
+    label: "Membres Actifs"
+  }, {
+    icon: Award,
+    value: "25+",
+    label: "Prix Remportés"
+  }, {
+    icon: Target,
+    value: "50+",
+    label: "Projets Réalisés"
+  }];
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[600px] md:h-[700px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={heroImage}
-            alt="Club activities"
-            className="w-full h-full object-cover"
-          />
+          <img src={heroImage} alt="Club activities" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent" />
         </div>
         
@@ -84,17 +80,7 @@ const Home = () => {
       <section className="py-12 bg-card border-y border-border">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="flex items-center gap-4 justify-center md:justify-start">
-                <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center">
-                  <stat.icon className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <div className="text-3xl font-bold">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </div>
-              </div>
-            ))}
+            {stats.map((stat, index) => {})}
           </div>
         </div>
       </section>
@@ -110,17 +96,9 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {activities.map((activity, index) => (
-              <Card
-                key={index}
-                className="group overflow-hidden hover:shadow-strong transition-all duration-300 hover:-translate-y-2"
-              >
+            {activities.map((activity, index) => <Card key={index} className="group overflow-hidden hover:shadow-strong transition-all duration-300 hover:-translate-y-2">
                 <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={activity.image}
-                    alt={activity.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
+                  <img src={activity.image} alt={activity.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                   <div className={`absolute inset-0 bg-gradient-to-t ${activity.color} opacity-60`} />
                   <div className="absolute bottom-4 left-4">
                     <div className="w-12 h-12 rounded-lg bg-card flex items-center justify-center shadow-medium">
@@ -138,8 +116,7 @@ const Home = () => {
                     </Button>
                   </Link>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -161,8 +138,6 @@ const Home = () => {
           </Link>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
