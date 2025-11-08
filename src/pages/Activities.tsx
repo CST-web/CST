@@ -70,7 +70,12 @@ const Activities = () => {
                         <h3 className="font-semibold">Ce que nous offrons</h3>
                       </div>
                       <ul className="space-y-2">
-                        {activity.features.map((feature, idx) => {})}
+                        {activity.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="text-primary mt-1">•</span>
+                            <span className="text-sm text-muted-foreground">{feature}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
@@ -78,15 +83,7 @@ const Activities = () => {
                     <div className="flex items-center gap-2 text-sm">
                       <Calendar className="w-5 h-5 text-primary" />
                       <span className="font-medium">Horaires:</span>
-                      
-                    </div>
-
-                    {/* Members */}
-                    <div className="flex items-center gap-2 text-sm">
-                      <Users className="w-5 h-5 text-primary" />
-                      <span className="text-muted-foreground">
-                        Plus de {30 + index * 20} membres actifs
-                      </span>
+                      <span className="text-muted-foreground">{activity.schedule}</span>
                     </div>
                   </div>
                 </CardContent>
