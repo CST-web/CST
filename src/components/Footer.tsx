@@ -48,9 +48,9 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Nos Activités</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Échecs & Rubik's Cube</li>
-              <li>Innovation & Prototypage</li>
               <li>Robotique</li>
+              <li>Échecs & Rubik's Cube</li>
+              <li>Prix du meilleur TIPE</li>
             </ul>
           </div>
 
