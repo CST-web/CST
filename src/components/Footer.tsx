@@ -21,22 +21,22 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Navigation</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="" className="text-muted-foreground hover:text-primary transition-colors">
                   Accueil
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="about" className="text-muted-foreground hover:text-primary transition-colors">
                   À propos
                 </Link>
               </li>
               <li>
-                <Link to="/activities" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="activities" className="text-muted-foreground hover:text-primary transition-colors">
                   Activités
                 </Link>
               </li>
               <li>
-                <Link to="/events" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="events" className="text-muted-foreground hover:text-primary transition-colors">
                   Événements
                 </Link>
               </li>

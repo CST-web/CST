@@ -20,7 +20,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/CST">
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -31,7 +31,7 @@ const App = () => (
             <Route path="/join" element={<Join />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
         </Layout>
       </BrowserRouter>
