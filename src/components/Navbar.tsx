@@ -24,8 +24,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <img src={cstLogo} alt="CST Logo" className="w-10 h-10 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-3" />
+          <Link to="/" className="flex items-center space-x-3 group">
+            <img src={cstLogo} alt="CST Logo" className="w-14 h-14 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-3" />
             <span className="font-bold text-lg hidden md:block transition-colors group-hover:text-primary">Club Scientifique et Technologique</span>
           </Link>
 

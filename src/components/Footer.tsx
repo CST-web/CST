@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import cstLogo from "@/assets/cst-logo.png";
 const Footer = () => {
   return <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">CST</span>
-              </div>
+            <div className="flex items-center space-x-3">
+              <img src={cstLogo} alt="CST Logo" className="w-12 h-12 object-contain" />
               <span className="font-bold text-lg">Club Scientifique et Technologique</span>
             </div>
             <p className="text-muted-foreground text-sm">
