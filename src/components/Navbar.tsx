@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, User } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import cstLogo from "@/assets/cst-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,9 +25,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">CST</span>
-            </div>
+            <img src={cstLogo} alt="CST Logo" className="w-10 h-10 object-contain" />
             <span className="font-bold text-lg hidden md:block">Club Scientifique et Technologique</span>
           </Link>
 
