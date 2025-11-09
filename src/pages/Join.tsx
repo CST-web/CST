@@ -114,7 +114,7 @@ const Join = () => {
             </Card>
 
             <Card className="bg-gradient-hero shadow-medium">
-              <CardContent className="pt-6 text-center">
+              <CardContent className="pt-6 text-center bg-[#bc77d0]">
                 <h3 className="text-2xl font-bold text-primary-foreground mb-3">Cotisation Par An</h3>
                 <div className="text-4xl font-bold text-primary-foreground mb-2">
                   XXX DH/an
