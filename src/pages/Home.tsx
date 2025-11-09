@@ -135,7 +135,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40 bg-[#89cf4f]/[0.03]" />
         </div>
         <div className="relative container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-black mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold text-black mb-6">
             Prêt à Rejoindre l'Aventure ?
           </h2>
           <p className="text-xl text-black/90 mb-8 max-w-2xl mx-auto font-bold">
