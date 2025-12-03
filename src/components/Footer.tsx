@@ -1,15 +1,22 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import cstLogo from "@/assets/cst-logo.png";
+import { Github, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import cstLogo from "@/assets/logo.jpeg";
 const Footer = () => {
-  return <footer className="bg-card border-t border-border">
+  return (
+    <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src={cstLogo} alt="CST Logo" className="w-12 h-12 object-contain" />
-              <span className="font-bold text-lg">Club Scientifique et Technologique</span>
+              <img
+                src={cstLogo}
+                alt="CST Logo"
+                className="w-12 h-12 object-contain"
+              />
+              <span className="font-bold text-lg">
+                Club Scientifique et Technologique
+              </span>
             </div>
             <p className="text-muted-foreground text-sm">
               Stimuler la créativité et l'innovation chez les jeunes esprits
@@ -21,22 +28,34 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Navigation</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to=""
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Accueil
                 </Link>
               </li>
               <li>
-                <Link to="about" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="about"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   À propos
                 </Link>
               </li>
               <li>
-                <Link to="activities" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="activities"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Activités
                 </Link>
               </li>
               <li>
-                <Link to="events" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="events"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Événements
                 </Link>
               </li>
@@ -70,15 +89,29 @@ const Footer = () => {
                 <span>Lycée Ibn Timiya - Salle de conférence</span>
               </li>
             </ul>
-            
+
             {/* Social Links */}
             <div className="flex gap-3 mt-4">
-              
-              <a href="#" className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/club.scientifique.tech?igsh=MW1oa2Zpa3pwYzBqag=="
+                className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300"
+                aria-label="Instagram"
+              >
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300" aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/company/club.scientifique.tech/"
+                className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300"
+                aria-label="LinkedIn"
+              >
                 <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="https://github.com/CST-web"
+                className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <Github className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -86,9 +119,13 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Club Scientifique et Technologique. Tous droits réservés.</p>
+          <p>
+            © {new Date().getFullYear()} Club Scientifique et Technologique.
+            Tous droits réservés.
+          </p>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
 export default Footer;

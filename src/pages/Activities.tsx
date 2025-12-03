@@ -186,6 +186,13 @@ const Activities = () => {
                         </span>
                       </div>
                     )}
+
+                    {activity.title === "Prix du meilleur TIPE" && (
+                      <p className="text-sm italic text-muted-foreground mt-4">
+                        <strong>NB :</strong> Activité réservée uniquement aux
+                        étudiants de deuxième année.
+                      </p>
+                    )}
                   </div>
                 </CardContent>
               </div>

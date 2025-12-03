@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { Menu, X, User, LogOutIcon } from "lucide-react";
 import { Button } from "./ui/button";
-import cstLogo from "@/assets/cst-logo.png";
+import cstLogo from "@/assets/logo.jpeg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -100,11 +100,7 @@ const Navbar = () => {
               </Link>
             ))}
             {token ? (
-              <Button
-                variant="ghost"
-                className="w-full mt-2"
-                onClick={logout}
-              >
+              <Button variant="ghost" className="w-full mt-2" onClick={logout}>
                 <LogOutIcon className="w-4 h-4 mr-2" />
                 Logout
               </Button>

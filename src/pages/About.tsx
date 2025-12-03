@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Target, Eye, Heart, Users, Linkedin } from "lucide-react";
+import { Target, Eye, Heart, Users, Linkedin,Instagram } from "lucide-react";
 import presidentImage from "@/assets/president-new.png";
 const About = () => {
   const values = [{
@@ -41,16 +41,13 @@ const About = () => {
                   <AvatarFallback className="text-2xl">IF</AvatarFallback>
                 </Avatar>
                 <div className="flex gap-3">
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                    
-                  </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://www.linkedin.com/in/ihabe-farahat-sherif/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                     <Linkedin className="w-5 h-5" />
                   </a>
                 </div>
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-3xl font-bold mb-2">Ihabe Farahat Sherif – Président du Club Scientifique et Technologique </h2>
+                <h2 className="text-3xl font-bold mb-2">Ihabe Farahat Sherif – Président du Club Scientifique et Technologique.</h2>
                 <p className="text-primary font-semibold mb-4">Étudiant en filière ECT au CPGE Ibn Taymiya</p>
                 <p className="text-muted-foreground leading-relaxed">Ihabe Farahat Sherif allie compétences techniques, esprit d'innovation et sens du leadership. Certifié par des institutions internationales telles que IBM, LinkedIn, Project Management Institute et Cisco ..., il s'engage à promouvoir l'excellence, la collaboration et la gestion efficace de projets au sein du club. En tant que président, il œuvre à créer un environnement où chaque étudiant peut proposer, expérimenter et agir, tout en développant ses compétences personnelles et professionnelles. Son objectif : faire du club un espace d'apprentissage dynamique, où rigueur académique et créativité se rencontrent pour inspirer la prochaine génération de leaders.</p>
               </div>
