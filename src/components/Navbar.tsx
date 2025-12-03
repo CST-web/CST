@@ -1,12 +1,14 @@
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, User } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "@/context/AuthContext";
+import { Menu, X, User, LogOutIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import cstLogo from "@/assets/cst-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { token, logout } = useAuth();
 
   const navLinks = [
     { path: "/", label: "Accueil" },
@@ -24,9 +26,15 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <img src={cstLogo} alt="CST Logo" className="w-14 h-14 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-3" />
-            <span className="font-bold text-lg hidden md:block transition-colors group-hover:text-primary">Club Scientifique et Technologique</span>
+          <Link to="" className="flex items-center space-x-3 group">
+            <img
+              src={cstLogo}
+              alt="CST Logo"
+              className="w-14 h-14 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+            />
+            <span className="font-bold text-lg hidden md:block transition-colors group-hover:text-primary">
+              Club Scientifique et Technologique
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -44,12 +52,24 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Link to="/join">
-              <Button variant="hero" size="sm" className="ml-4">
-                <User className="w-4 h-4 mr-2" />
-                Connexion
+            {token ? (
+              <Button
+                variant="ghost"
+                size="sm"
+                className="ml-4"
+                onClick={logout}
+              >
+                <LogOutIcon className="w-4 h-4 mr-2" />
+                Logout
               </Button>
-            </Link>
+            ) : (
+              <Link to="join">
+                <Button variant="hero" size="sm" className="ml-4">
+                  <User className="w-4 h-4 mr-2" />
+                  Connexion
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -79,12 +99,23 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Link to="/join" onClick={() => setIsOpen(false)}>
-              <Button variant="hero" className="w-full mt-2">
-                <User className="w-4 h-4 mr-2" />
-                Connexion
+            {token ? (
+              <Button
+                variant="ghost"
+                className="w-full mt-2"
+                onClick={logout}
+              >
+                <LogOutIcon className="w-4 h-4 mr-2" />
+                Logout
               </Button>
-            </Link>
+            ) : (
+              <Link to="join" onClick={() => setIsOpen(false)}>
+                <Button variant="hero" className="w-full mt-2">
+                  <User className="w-4 h-4 mr-2" />
+                  Connexion
+                </Button>
+              </Link>
+            )}
           </div>
         )}
       </div>
