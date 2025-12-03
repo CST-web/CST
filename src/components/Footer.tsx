@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Logo & Description */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
@@ -72,6 +72,35 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Developers */}
+          <div>
+            <h3 className="font-semibold text-base mb-4">Développeurs</h3>
+
+            {/* Back-End */}
+            <div className="flex flex-col gap-1 text-xs text-muted-foreground">
+              <span className="font-medium text-sm">Back-End</span>
+              <div className="flex items-center">
+                <span>Younes Alhyan : </span>
+                <div className="flex gap-2 mx-1">
+                  <a
+                    href="https://github.com/younes-alhyan/"
+                    className="w-5 h-5 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300"
+                    aria-label="GitHub"
+                  >
+                    <Github className="w-3 h-3" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/younes-alhyan/"
+                    className="w-5 h-5 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Contact Info */}
           <div>
             <h3 className="font-semibold mb-4">Contact</h3>
@@ -90,7 +119,6 @@ const Footer = () => {
               </li>
             </ul>
 
-            {/* Social Links */}
             <div className="flex gap-3 mt-4">
               <a
                 href="https://www.instagram.com/club.scientifique.tech?igsh=MW1oa2Zpa3pwYzBqag=="
@@ -109,7 +137,7 @@ const Footer = () => {
               <a
                 href="https://github.com/CST-web"
                 className="w-8 h-8 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300"
-                aria-label="LinkedIn"
+                aria-label="GitHub"
               >
                 <Github className="w-4 h-4" />
               </a>
