@@ -9,11 +9,14 @@ import {
   Calendar,
   Sparkles,
   Handshake,
+  Lightbulb,
 } from "lucide-react";
 import chessImage from "@/assets/chess-activity.jpg";
 import tipeImage from "@/assets/tipe-activity.jpg";
 import roboticsImage from "@/assets/robotics-activity.jpg";
 import ctaBackground from "@/assets/activities-cta-bg.jpg";
+import innovationImage from "@/assets/innovation-activity.jpg";
+
 const Activities = () => {
   const { token } = useAuth();
   const activities = [
@@ -30,9 +33,8 @@ const Activities = () => {
         "Des compétition locale, nationale ou même internationale",
       ],
       precious: "",
-      partners: "l'association ATDTech",
-      schedule: "coming soon",
-      members: "Entre 30 et 40 élèves",
+      partners: "ATDTech (Ouikassi)",
+      duration: "De Décembre à Mars",
     },
     {
       title: "Échecs & Rubik's Cube",
@@ -48,9 +50,8 @@ const Activities = () => {
         "Des compétition locale, nationale ou même internationale",
       ],
       precious: "",
-      partners: "coming soon",
-      schedule: "coming soon",
-      members: "coming soon",
+      partners: "La ligue régional Marrakech Safi des échecs",
+      duration: "De Décembre à Avril",
     },
     {
       title: "Prix du meilleur TIPE",
@@ -62,8 +63,24 @@ const Activities = () => {
       features: ["Lancement du thème", "Encadrement & Motivation"],
       precious: "",
       partners: "coming soon",
-      schedule: "coming soon",
-      members: "coming soon",
+      duration: "coming soon",
+    },
+    {
+      title: "Ateliers d'innovation",
+      image: innovationImage,
+      icon: Lightbulb,
+      color: "from-purple-500 to-pink-400",
+      description:
+        "Stimulez votre créativité et développez des projets innovants en équipe, en explorant de nouvelles technologies et en transformant vos idées en prototypes concrets.",
+      features: [
+        "Ateliers structurés en créativité, design thinking et résolution de problèmes",
+        "Mini-projets réalisés en groupes",
+        "Accompagnement par des experts",
+        "Présentations finales des projets",
+      ],
+      precious: "",
+      partners: "Experts et enseignants du LIT",
+      duration: "De Décembre à Avril",
     },
   ];
   return (
@@ -153,44 +170,31 @@ const Activities = () => {
                     </div>
 
                     {/* Partners - Hidden for Prix du meilleur TIPE */}
-                    {activity.title !== "Prix du meilleur TIPE" && (
-                      <div>
-                        <div className="flex items-center gap-2 mb-2">
-                          <Handshake className="w-5 h-5 text-primary" />
-                          <h3 className="font-semibold">Partenaires</h3>
-                        </div>
-                        <p className="text-muted-foreground text-sm italic">
-                          {activity.partners}
-                        </p>
-                      </div>
-                    )}
 
-                    {/* Schedule - Hidden for Prix du meilleur TIPE */}
-                    {activity.title !== "Prix du meilleur TIPE" && (
-                      <div className="flex items-center gap-2 text-sm">
-                        <Calendar className="w-5 h-5 text-primary" />
-                        <span className="font-medium">Horaires:</span>
-                        <span className="text-muted-foreground italic">
-                          {activity.schedule}
-                        </span>
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Handshake className="w-5 h-5 text-primary" />
+                        <h3 className="font-semibold">Partenaires</h3>
                       </div>
-                    )}
+                      <p className="text-muted-foreground text-sm italic">
+                        {activity.partners}
+                      </p>
+                    </div>
 
-                    {/* Members - Hidden for Prix du meilleur TIPE */}
-                    {activity.title !== "Prix du meilleur TIPE" && (
-                      <div className="flex items-center gap-2 text-sm">
-                        <Users className="w-5 h-5 text-primary" />
-                        <span className="font-medium">Membres:</span>
-                        <span className="text-muted-foreground italic">
-                          {activity.members}
-                        </span>
-                      </div>
-                    )}
+                    {/* Duration - Hidden for Prix du meilleur TIPE */}
+
+                    <div className="flex items-center gap-2 text-sm">
+                      <Calendar className="w-5 h-5 text-primary" />
+                      <span className="font-medium">Durée:</span>
+                      <span className="text-muted-foreground italic">
+                        {activity.duration}
+                      </span>
+                    </div>
 
                     {activity.title === "Prix du meilleur TIPE" && (
                       <p className="text-sm italic text-muted-foreground mt-4">
                         <strong>NB :</strong> Activité réservée uniquement aux
-                        étudiants de deuxième année.
+                        étudiants scientifique de deuxième année.
                       </p>
                     )}
                   </div>

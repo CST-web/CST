@@ -2,12 +2,22 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronRight, Target, Users, Award, Brain, Bot } from "lucide-react";
+import {
+  ChevronRight,
+  Target,
+  Users,
+  Award,
+  Brain,
+  Bot,
+  Lightbulb,
+} from "lucide-react";
 import heroImage from "@/assets/hero-chess-tech-bg.jpg";
 import chessImage from "@/assets/chess-activity.jpg";
 import tipeImage from "@/assets/tipe-activity.jpg";
 import roboticsImage from "@/assets/robotics-activity.jpg";
 import ctaBackground from "@/assets/cta-bg.jpg";
+import innovationImage from "@/assets/innovation-activity.jpg";
+
 const Home = () => {
   const { token } = useAuth();
   const activities = [
@@ -34,6 +44,14 @@ const Home = () => {
       icon: Award,
       image: tipeImage,
       color: "from-accent to-orange-400",
+    },
+    {
+      title: "Ateliers d'innovation",
+      description:
+        "Stimulez votre créativité et développez des projets innovants en équipe, en explorant de nouvelles technologies et en transformant vos idées en prototypes concrets.",
+      icon: Lightbulb,
+      image: innovationImage,
+      color: "from-purple-500 to-pink-400",
     },
   ];
   const stats = [
