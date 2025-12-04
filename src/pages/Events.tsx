@@ -2,60 +2,48 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Clock, Users } from "lucide-react";
+import { useState, useEffect } from "react";
+
+interface Event {
+  _id: string;
+  activity: "Échecs" | "Robotique" | "Prix du meilleur TIPE";
+  title: string;
+  description: string;
+  date: string;
+  location: string;
+  memberLimit: number;
+  members: string[];
+}
+
+const BASE_URL = "https://club-server-25gd.onrender.com";
+
 const Events = () => {
-  const upcomingEvents = [{
-    title: "Tournoi d'Échecs Inter-Clubs",
-    date: "15 Avril 2024",
-    time: "14h00 - 18h00",
-    location: "Salle A - Campus Principal",
-    category: "Échecs",
-    participants: "30/40",
-    description: "Grande compétition d'échecs ouverte à tous les niveaux. Prix pour les trois premiers.",
-    status: "Inscriptions ouvertes"
-  }, {
-    title: "Hackathon Innovation 48h",
-    date: "20-22 Avril 2024",
-    time: "Vendredi 18h - Dimanche 18h",
-    location: "Espace Innovation",
-    category: "Prix du meilleur TIPE",
-    participants: "45/50",
-    description: "Développez un projet innovant en 48 heures. Mentorat, pizza et prix garantis !",
-    status: "Places limitées"
-  }, {
-    title: "Compétition Robotique Régionale",
-    date: "5 Mai 2024",
-    time: "09h00 - 17h00",
-    location: "Centre des Congrès",
-    category: "Robotique",
-    participants: "12/15 équipes",
-    description: "Qualifier pour la compétition nationale. Défi: Robot autonome de navigation.",
-    status: "Inscriptions ouvertes"
-  }, {
-    title: "Atelier Résolution Rubik's Cube",
-    date: "25 Avril 2024",
-    time: "16h00 - 18h00",
-    location: "Salle B - Campus Principal",
-    category: "Échecs",
-    participants: "18/25",
-    description: "Apprenez les techniques de speed-solving avec nos champions du club.",
-    status: "Inscriptions ouvertes"
-  }];
-  const pastEvents = [{
-    title: "Workshop Arduino pour Débutants",
-    date: "10 Mars 2024",
-    category: "Robotique",
-    participants: "22 participants"
-  }, {
-    title: "Expo Projets Innovation",
-    date: "5 Mars 2024",
-    category: "Prix du meilleur TIPE",
-    participants: "15 projets présentés"
-  }, {
-    title: "Tournoi Blitz d'Échecs",
-    date: "28 Février 2024",
-    category: "Échecs",
-    participants: "35 participants"
-  }];
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`${BASE_URL}/events`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch events data');
+        }
+        const data = await response.json();
+        setEvents(data);
+        setError(null);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred');
+        console.error('Error fetching events:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "Échecs":
@@ -68,6 +56,86 @@ const Events = () => {
         return "bg-primary";
     }
   };
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('fr-FR', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+  };
+
+  const formatTime = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleTimeString('fr-FR', { 
+      hour: '2-digit', 
+      minute: '2-digit' 
+    });
+  };
+
+  const isUpcoming = (dateString: string) => {
+    return new Date(dateString) >= new Date();
+  };
+
+  const upcomingEvents = events.filter(event => isUpcoming(event.date));
+  const pastEvents = events.filter(event => !isUpcoming(event.date));
+
+  if (loading) {
+    return (
+      <div className="min-h-screen py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl font-bold mb-6">Nos Événements</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Découvrez nos prochains événements et inscrivez-vous pour participer
+            </p>
+          </div>
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold mb-8">Événements à Venir</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[1, 2, 3, 4].map((i) => (
+                <Card key={i}>
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="h-8 bg-muted rounded animate-pulse flex-1 mr-4" />
+                      <div className="h-6 w-20 bg-muted rounded animate-pulse" />
+                    </div>
+                    <div className="h-16 bg-muted rounded animate-pulse mb-6" />
+                    <div className="space-y-3 mb-6">
+                      <div className="h-4 bg-muted rounded animate-pulse" />
+                      <div className="h-4 bg-muted rounded animate-pulse" />
+                      <div className="h-4 bg-muted rounded animate-pulse" />
+                      <div className="h-4 bg-muted rounded animate-pulse" />
+                    </div>
+                    <div className="h-10 bg-muted rounded animate-pulse" />
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen py-12">
+        <div className="container mx-auto px-4">
+          <Card className="shadow-medium">
+            <div className="p-12 text-center">
+              <h2 className="text-4xl font-bold mb-4 text-red-500">Erreur</h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Impossible de charger les événements. Veuillez réessayer plus tard.
+              </p>
+              <p className="text-sm text-muted-foreground mt-2">{error}</p>
+            </div>
+          </Card>
+        </div>
+      </div>
+    );
+  }
   return <div className="min-h-screen py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
@@ -78,16 +146,95 @@ const Events = () => {
           </p>
         </div>
 
-        {/* Coming Soon Message */}
-        <Card className="shadow-medium">
-          <div className="p-12 text-center">
-            <h2 className="text-4xl font-bold mb-4">Coming Soon</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Nous préparons une liste complète d'événements passionnants. 
-              Revenez prochainement pour découvrir nos prochaines activités et compétitions.
-            </p>
-          </div>
-        </Card>
+        {/* No Events Message */}
+        {events.length === 0 ? (
+          <Card className="shadow-medium">
+            <div className="p-12 text-center">
+              <h2 className="text-4xl font-bold mb-4">Aucun événement disponible</h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Nous préparons une liste complète d'événements passionnants. 
+                Revenez prochainement pour découvrir nos prochaines activités et compétitions.
+              </p>
+            </div>
+          </Card>
+        ) : (
+          <>
+            {/* Upcoming Events */}
+            {upcomingEvents.length > 0 && (
+              <div className="mb-16">
+                <h2 className="text-3xl font-bold mb-8">Événements à Venir</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {upcomingEvents.map((event) => (
+                    <Card key={event._id} className="hover:shadow-large transition-all duration-300">
+                      <CardContent className="p-6">
+                        <div className="flex justify-between items-start mb-4">
+                          <h3 className="text-2xl font-bold flex-1">{event.title}</h3>
+                          <Badge className={getCategoryColor(event.activity)}>
+                            {event.activity}
+                          </Badge>
+                        </div>
+
+                        <p className="text-muted-foreground mb-6">{event.description}</p>
+
+                        <div className="space-y-3 mb-6">
+                          <div className="flex items-center gap-3 text-sm">
+                            <Calendar className="w-4 h-4 text-primary" />
+                            <span>{formatDate(event.date)}</span>
+                          </div>
+                          <div className="flex items-center gap-3 text-sm">
+                            <Clock className="w-4 h-4 text-primary" />
+                            <span>{formatTime(event.date)}</span>
+                          </div>
+                          <div className="flex items-center gap-3 text-sm">
+                            <MapPin className="w-4 h-4 text-primary" />
+                            <span>{event.location}</span>
+                          </div>
+                          <div className="flex items-center gap-3 text-sm">
+                            <Users className="w-4 h-4 text-primary" />
+                            <span>{event.members.length}/{event.memberLimit} participants</span>
+                          </div>
+                        </div>
+
+                        <Button className="w-full">
+                          {event.members.length >= event.memberLimit ? 'Complet' : 'S\'inscrire'}
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Past Events */}
+            {pastEvents.length > 0 && (
+              <div>
+                <h2 className="text-3xl font-bold mb-8">Événements Passés</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {pastEvents.map((event) => (
+                    <Card key={event._id} className="hover:shadow-medium transition-all duration-300">
+                      <CardContent className="p-6">
+                        <Badge className={`${getCategoryColor(event.activity)} mb-3`}>
+                          {event.activity}
+                        </Badge>
+                        <h3 className="text-lg font-bold mb-2">{event.title}</h3>
+                        <div className="space-y-2 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-2">
+                            <Calendar className="w-3 h-3" />
+                            <span>{formatDate(event.date)}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Users className="w-3 h-3" />
+                            <span>{event.members.length} participants</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </div>;
 };
