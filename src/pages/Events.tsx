@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Clock, Users } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useAuth } from "@/context/AuthContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface Event {
   _id: string;
@@ -21,6 +23,8 @@ const Events = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { token, member } = useAuth();
+  const { toast } = useToast();
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -44,6 +48,110 @@ const Events = () => {
     fetchEvents();
   }, []);
 
+  const joinEvent = async (eventId: string) => {
+    try {
+      const response = await fetch(`${BASE_URL}/events/join/${eventId}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        toast({
+          title: "Échec de l'inscription à l'événement",
+          description: data.message,
+          variant: "destructive",
+        });
+        return;
+      }
+      setEvents((prev) =>
+        prev.map((event) =>
+          event._id === eventId ? { ...event, ...data.event } : event
+        )
+      );
+      toast({
+        title: "Inscription réussie à l'événement",
+        description: data.message,
+      });
+    } catch (error) {
+      toast({
+        title: "Erreur réseau",
+        description: "Impossible de contacter le serveur.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const leaveEvent = async (eventId: string) => {
+    try {
+      const response = await fetch(`${BASE_URL}/events/leave/${eventId}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        toast({
+          title: "Échec du désinscription de l'événement",
+          description: data.message,
+          variant: "destructive",
+        });
+        return;
+      }
+      setEvents((prev) =>
+        prev.map((event) =>
+          event._id === eventId ? { ...event, ...data.event } : event
+        )
+      );
+      toast({
+        title: "Désinscription réussie de l'événement",
+        description: data.message,
+      });
+    } catch (error) {
+      toast({
+        title: "Erreur réseau",
+        description: "Impossible de contacter le serveur.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const renderMembershipButton = (event: Event) => {
+    const isMember = event.members.includes(member._id);
+    const isFull = event.members.length >= event.memberLimit;
+
+    const buttonText = isMember
+      ? "Se désinscrire"
+      : isFull
+      ? "Complet"
+      : "S'inscrire";
+
+    const handleClick = () => {
+      if (isMember) return leaveEvent(event._id);
+      if (!isFull) return joinEvent(event._id);
+    };
+
+    return (
+      <Button
+        disabled={isFull && !isMember}
+        className={`w-full ${
+          isMember ? "bg-destructive hover:bg-red-400" : ""
+        }`}
+        onClick={handleClick}
+      >
+        {buttonText}
+      </Button>
+    );
+  };
+
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "Échecs":
@@ -61,18 +169,18 @@ const Events = () => {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('fr-FR', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
   const formatTime = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleTimeString('fr-FR', { 
-      hour: '2-digit', 
-      minute: '2-digit' 
+    return date.toLocaleTimeString("fr-FR", {
+      hour: "2-digit",
+      minute: "2-digit",
     });
   };
 
@@ -197,9 +305,8 @@ const Events = () => {
                           </div>
                         </div>
 
-                        <Button className="w-full">
-                          {event.members.length >= event.memberLimit ? 'Complet' : 'S\'inscrire'}
-                        </Button>
+                        {/* Join/Leave Event Button */}
+                        {renderMembershipButton(event)}
                       </CardContent>
                     </Card>
                   ))}
