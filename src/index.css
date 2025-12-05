@@ -105,4 +105,8 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  button:disabled {
+    @apply bg-muted text-muted-foreground border-border cursor-not-allowed;
+  }
 }
