@@ -8,8 +8,13 @@ export interface registerData {
   password: string;
 }
 
+export type Member = Omit<registerData, "password"> & {
+  _id: string;
+};
+
 interface AuthContextType {
   token: string | undefined;
+  member: Member | undefined;
   register: (registerData: registerData) => Promise<void>;
   login: (credentials: { username: string; password: string }) => Promise<void>;
   logout: () => void;
