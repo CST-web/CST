@@ -29,7 +29,7 @@ const Events = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { token, member } = useAuth();
+  const { token, member, logout } = useAuth();
   const { toast } = useToast();
 
   useEffect(() => {
@@ -72,6 +72,7 @@ const Events = () => {
           description: data.message,
           variant: "destructive",
         });
+        response.status === 401 && logout();
         return;
       }
       setEvents((prev) =>
@@ -110,6 +111,7 @@ const Events = () => {
           description: data.message,
           variant: "destructive",
         });
+        response.status === 401 && logout();
         return;
       }
       setEvents((prev) =>
@@ -141,9 +143,7 @@ const Events = () => {
       : "S'inscrire";
 
     const handleClick = () => {
-      if (!member) {
-        navigate("/join", { replace: true });
-      }
+      if (!member) return navigate("/join", { replace: true });
       if (isMember) return leaveEvent(event._id);
       if (!isFull) return joinEvent(event._id);
     };
