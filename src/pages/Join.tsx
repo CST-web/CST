@@ -69,8 +69,8 @@ const Join = () => {
       });
 
       toast({
-        title: "Inscription réussie !",
-        description: "Contactez le président pour activer votre compte.",
+        title: "Connexion réussie !",
+        description: "Bienvenue au club !",
       });
 
       setSignupData({
