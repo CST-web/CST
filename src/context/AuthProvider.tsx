@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       );
 
       if (!res.ok) throw new Error("Registration failed");
+      login(registerData)
     } catch (err) {
       console.error(err.message);
       throw err;
