@@ -69,6 +69,7 @@ const Footer = () => {
               <li>Robotique</li>
               <li>Échecs & Rubik's Cube</li>
               <li>Prix du meilleur TIPE</li>
+              <li>Ateliers d'innovation</li>
             </ul>
           </div>
 
