@@ -1,11 +1,11 @@
 import { useAuth } from "@/context/AuthContext";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import {
   Brain,
   Award,
   Bot,
   Trophy,
-  Users,
   Calendar,
   Sparkles,
   Handshake,
@@ -222,11 +222,11 @@ const Activities = () => {
               <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
                 Rejoignez-nous et découvrez toutes nos activités passionnantes
               </p>
-              <a href="/join">
+              <Link to="/join">
                 <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-strong transition-all duration-300 hover:scale-105">
                   Nous Rejoindre
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         )}
