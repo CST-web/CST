@@ -92,7 +92,7 @@ const Gallery = () => {
     );
   }
 
-  return <div className="min-h-screen py-12">
+  return (<div className="min-h-screen py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
