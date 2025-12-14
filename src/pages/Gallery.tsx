@@ -65,10 +65,28 @@ const Gallery = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen py-12 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" />
-          <p className="mt-4 text-lg text-muted-foreground">Chargement de la galerie...</p>
+      <div className="min-h-screen py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl font-bold mb-6">Notre Galerie</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Revivez les moments forts de nos événements, compétitions et ateliers
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <Card key={i} className="overflow-hidden">
+                <div className="relative aspect-video overflow-hidden bg-muted animate-pulse" />
+                <div className="p-6">
+                  <div className="h-6 bg-muted rounded animate-pulse mb-2" />
+                  <div className="flex justify-between items-center">
+                    <div className="h-4 bg-muted rounded animate-pulse w-24" />
+                    <div className="h-4 bg-muted rounded animate-pulse w-16" />
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     );

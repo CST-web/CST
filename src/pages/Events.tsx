@@ -83,14 +83,41 @@ const Events = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen py-12 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" />
-          <p className="mt-4 text-lg text-muted-foreground">Chargement des événements...</p>
+      <div className="min-h-screen py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl font-bold mb-6">Nos Événements</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Découvrez nos prochains événements et inscrivez-vous pour participer
+            </p>
+          </div>
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold mb-8">Événements à Venir</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[1, 2, 3, 4].map((i) => (
+                <Card key={i}>
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="h-8 bg-muted rounded animate-pulse flex-1 mr-4" />
+                      <div className="h-6 w-20 bg-muted rounded animate-pulse" />
+                    </div>
+                    <div className="h-16 bg-muted rounded animate-pulse mb-6" />
+                    <div className="space-y-3 mb-6">
+                      <div className="h-4 bg-muted rounded animate-pulse" />
+                      <div className="h-4 bg-muted rounded animate-pulse" />
+                      <div className="h-4 bg-muted rounded animate-pulse" />
+                      <div className="h-4 bg-muted rounded animate-pulse" />
+                    </div>
+                    <div className="h-10 bg-muted rounded animate-pulse" />
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     );
-  };
+  }
 
   if (error) {
     return (
