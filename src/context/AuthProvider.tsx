@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
-import type { registerData } from "./AuthContext";
+import type { registerData, Member } from "./AuthContext";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState<string | undefined>();
-
+  const [member, setMember] = useState<Member | undefined>();
   useEffect(() => {
-    const stored = localStorage.getItem("token");
-    if (stored) setToken(stored);
+    const storedToken = localStorage.getItem("token");
+    const storedMember = localStorage.getItem("member");
+
+    if (storedToken) setToken(storedToken);
+    if (storedMember) setMember(JSON.parse(storedMember) as Member);
+    else logout();
   }, []);
 
   const register = async (registerData: registerData) => {
@@ -47,9 +51,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
 
       // Success
-      if (data.token) {
+      if (data.token && data.member) {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("member", JSON.stringify(data.member));
         setToken(data.token);
+        setMember(data.member);
       } else {
         throw new Error("No token received");
       }
@@ -61,11 +67,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("member");
     setToken(undefined);
+    setMember(undefined);
   };
 
   return (
-    <AuthContext.Provider value={{ token, register, login, logout }}>
+    <AuthContext.Provider value={{ token, member, register, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
