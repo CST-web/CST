@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 interface Event {
   _id: string;
-  activity: "Échecs" | "Robotique" | "Prix du meilleur TIPE";
+  activity: "Échecs" | "Robotique" | "Prix du meilleur TIPE" | "Ateliers d'innovation";
   title: string;
   description: string;
   date: string;
@@ -52,6 +52,8 @@ const Events = () => {
         return "bg-accent";
       case "Robotique":
         return "bg-primary-glow";
+      case "Ateliers d'innovation":
+        return "bg-purple-500";
       default:
         return "bg-primary";
     }

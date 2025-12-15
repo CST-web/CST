@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 interface GalleryItem {
   _id: string;
-  activity: "Échecs" | "Robotique" | "Prix du meilleur TIPE";
+  activity: "Échecs" | "Robotique" | "Prix du meilleur TIPE" | "Ateliers d'innovation";
   title: string;
   date: string;
   images: string[];
@@ -49,6 +49,8 @@ const Gallery = () => {
         return "bg-accent";
       case "Robotique":
         return "bg-primary-glow";
+      case "Ateliers d'innovation":
+        return "bg-purple-500";
       default:
         return "bg-primary";
     }
