@@ -194,7 +194,7 @@ const Events = () => {
   };
 
   const isUpcoming = (dateString: string) => {
-    return new Date(dateString) >= new Date();
+    return dateString ? new Date(dateString) >= new Date() : true;
   };
 
   const upcomingEvents = events.filter((event) => isUpcoming(event.date));
@@ -311,12 +311,18 @@ const Events = () => {
                         <div className="space-y-3 mb-6">
                           <div className="flex items-center gap-3 text-sm">
                             <Calendar className="w-4 h-4 text-primary" />
-                            <span>{formatDate(event.date)}</span>
+                            <span>
+                              {event.date
+                                ? formatDate(event.date)
+                                : "Événement en cours"}
+                            </span>
                           </div>
-                          <div className="flex items-center gap-3 text-sm">
-                            <Clock className="w-4 h-4 text-primary" />
-                            <span>{formatTime(event.date)}</span>
-                          </div>
+                          {event.date && (
+                            <div className="flex items-center gap-3 text-sm">
+                              <Clock className="w-4 h-4 text-primary" />
+                              <span>{formatTime(event.date)}</span>
+                            </div>
+                          )}
                           <div className="flex items-center gap-3 text-sm">
                             <MapPin className="w-4 h-4 text-primary" />
                             <span>{event.location}</span>
