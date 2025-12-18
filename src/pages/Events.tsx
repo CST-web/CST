@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ interface Event {
 const BASE_URL = "https://club-server-25gd.onrender.com";
 
 const Events = () => {
+  const navigate = useNavigate();
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -125,7 +127,7 @@ const Events = () => {
   };
 
   const renderMembershipButton = (event: Event) => {
-    const isMember = event.members.includes(member._id);
+    const isMember = member ? event.members.includes(member._id) : false;
     const isFull = event.members.length >= event.memberLimit;
 
     const buttonText = isMember
@@ -135,6 +137,9 @@ const Events = () => {
       : "S'inscrire";
 
     const handleClick = () => {
+      if (!member) {
+        navigate("/join", { replace: true });
+      }
       if (isMember) return leaveEvent(event._id);
       if (!isFull) return joinEvent(event._id);
     };
