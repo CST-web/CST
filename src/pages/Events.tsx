@@ -9,7 +9,11 @@ import { useToast } from "@/hooks/use-toast";
 
 interface Event {
   _id: string;
-  activity: "Échecs" | "Robotique" | "Prix du meilleur TIPE" | "Ateliers d'innovation";
+  activity:
+    | "Échecs"
+    | "Robotique"
+    | "Prix du meilleur TIPE"
+    | "Ateliers d'innovation";
   title: string;
   description: string;
   date: string;
@@ -34,14 +38,14 @@ const Events = () => {
         setLoading(true);
         const response = await fetch(`${BASE_URL}/events`);
         if (!response.ok) {
-          throw new Error('Failed to fetch events data');
+          throw new Error("Failed to fetch events data");
         }
         const data = await response.json();
         setEvents(data);
         setError(null);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
-        console.error('Error fetching events:', err);
+        setError(err instanceof Error ? err.message : "An error occurred");
+        console.error("Error fetching events:", err);
       } finally {
         setLoading(false);
       }
@@ -193,8 +197,8 @@ const Events = () => {
     return new Date(dateString) >= new Date();
   };
 
-  const upcomingEvents = events.filter(event => isUpcoming(event.date));
-  const pastEvents = events.filter(event => !isUpcoming(event.date));
+  const upcomingEvents = events.filter((event) => isUpcoming(event.date));
+  const pastEvents = events.filter((event) => !isUpcoming(event.date));
 
   if (loading) {
     return (
@@ -203,7 +207,8 @@ const Events = () => {
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold mb-6">Nos Événements</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Découvrez nos prochains événements et inscrivez-vous pour participer
+              Découvrez nos prochains événements et inscrivez-vous pour
+              participer
             </p>
           </div>
           <div className="mb-16">
@@ -242,7 +247,8 @@ const Events = () => {
             <div className="p-12 text-center">
               <h2 className="text-4xl font-bold mb-4 text-red-500">Erreur</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Impossible de charger les événements. Veuillez réessayer plus tard.
+                Impossible de charger les événements. Veuillez réessayer plus
+                tard.
               </p>
               <p className="text-sm text-muted-foreground mt-2">{error}</p>
             </div>
@@ -251,7 +257,8 @@ const Events = () => {
       </div>
     );
   }
-  return <div className="min-h-screen py-12">
+  return (
+    <div className="min-h-screen py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -265,10 +272,13 @@ const Events = () => {
         {events.length === 0 ? (
           <Card className="shadow-medium">
             <div className="p-12 text-center">
-              <h2 className="text-4xl font-bold mb-4">Aucun événement disponible</h2>
+              <h2 className="text-4xl font-bold mb-4">
+                Aucun événement disponible
+              </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Nous préparons une liste complète d'événements passionnants. 
-                Revenez prochainement pour découvrir nos prochaines activités et compétitions.
+                Nous préparons une liste complète d'événements passionnants.
+                Revenez prochainement pour découvrir nos prochaines activités et
+                compétitions.
               </p>
             </div>
           </Card>
@@ -280,16 +290,23 @@ const Events = () => {
                 <h2 className="text-3xl font-bold mb-8">Événements à Venir</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {upcomingEvents.map((event) => (
-                    <Card key={event._id} className="hover:shadow-large transition-all duration-300">
+                    <Card
+                      key={event._id}
+                      className="hover:shadow-large transition-all duration-300"
+                    >
                       <CardContent className="p-6">
                         <div className="flex justify-between items-start mb-4">
-                          <h3 className="text-2xl font-bold flex-1">{event.title}</h3>
+                          <h3 className="text-2xl font-bold flex-1">
+                            {event.title}
+                          </h3>
                           <Badge className={getCategoryColor(event.activity)}>
                             {event.activity}
                           </Badge>
                         </div>
 
-                        <p className="text-muted-foreground mb-6">{event.description}</p>
+                        <p className="text-muted-foreground mb-6">
+                          {event.description}
+                        </p>
 
                         <div className="space-y-3 mb-6">
                           <div className="flex items-center gap-3 text-sm">
@@ -306,7 +323,10 @@ const Events = () => {
                           </div>
                           <div className="flex items-center gap-3 text-sm">
                             <Users className="w-4 h-4 text-primary" />
-                            <span>{event.members.length}/{event.memberLimit} participants</span>
+                            <span>
+                              {event.members.length}/{event.memberLimit}{" "}
+                              participants
+                            </span>
                           </div>
                         </div>
 
@@ -325,12 +345,19 @@ const Events = () => {
                 <h2 className="text-3xl font-bold mb-8">Événements Passés</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {pastEvents.map((event) => (
-                    <Card key={event._id} className="hover:shadow-medium transition-all duration-300">
+                    <Card
+                      key={event._id}
+                      className="hover:shadow-medium transition-all duration-300"
+                    >
                       <CardContent className="p-6">
-                        <Badge className={`${getCategoryColor(event.activity)} mb-3`}>
+                        <Badge
+                          className={`${getCategoryColor(event.activity)} mb-3`}
+                        >
                           {event.activity}
                         </Badge>
-                        <h3 className="text-lg font-bold mb-2">{event.title}</h3>
+                        <h3 className="text-lg font-bold mb-2">
+                          {event.title}
+                        </h3>
                         <div className="space-y-2 text-sm text-muted-foreground">
                           <div className="flex items-center gap-2">
                             <Calendar className="w-3 h-3" />
@@ -350,6 +377,7 @@ const Events = () => {
           </>
         )}
       </div>
-    </div>;
+    </div>
+  );
 };
 export default Events;
