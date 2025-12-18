@@ -57,17 +57,17 @@ const Home = () => {
   const stats = [
     {
       icon: Users,
-      value: "150+",
+      value: "50+",
       label: "Membres Actifs",
     },
     {
       icon: Award,
-      value: "25+",
+      value: "2+",
       label: "Prix Remportés",
     },
     {
       icon: Target,
-      value: "50+",
+      value: "0+",
       label: "Projets Réalisés",
     },
   ];
